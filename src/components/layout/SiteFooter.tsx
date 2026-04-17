@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { CookieSettingsTrigger } from "@/components/consent/CookieSettingsTrigger";
 
 export function SiteFooter() {
   return (
@@ -36,6 +37,14 @@ export function SiteFooter() {
                   className="text-sm text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
                 >
                   Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/cookie-policy"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
+                >
+                  Cookie Policy
                 </Link>
               </li>
             </ul>
@@ -87,6 +96,10 @@ export function SiteFooter() {
           <p className="text-xs text-muted-foreground">
             © 2026 TINSYS DIGITAL. All rights reserved.
           </p>
+          <div className="flex items-center gap-4">
+            <span className="text-muted-foreground text-xs">|</span>
+            <CookieSettingsTrigger />
+          </div>
         </div>
       </div>
     </footer>

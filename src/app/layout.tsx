@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { CookieConsentProvider } from "@/hooks/useCookieConsent";
+import { CookieConsentBanner } from "@/components/consent/CookieConsentBanner";
+import { CookiePreferencesModal } from "@/components/consent/CookiePreferencesModal";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -49,7 +53,12 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        {children}
+        <CookieConsentProvider>
+          {children}
+          <CookieConsentBanner />
+          <CookiePreferencesModal />
+          <GoogleAnalytics gaMeasurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ""} />
+        </CookieConsentProvider>
       </body>
     </html>
   );
