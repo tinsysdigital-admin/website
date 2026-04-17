@@ -1,16 +1,16 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { CookieConsentState } from "@/hooks/useCookieConsent"; // For typing, wait, I will rewrite the hook entirely.
+export interface CookieConsentState {
+  hasConsented: boolean;
+  analyticsEnabled: boolean;
+  timestamp: string | null;
+}
 
 const CONSENT_COOKIE_KEY = "tinsys_cookie_consent";
 
 interface CookieConsentContextType {
-  consent: {
-    hasConsented: boolean;
-    analyticsEnabled: boolean;
-    timestamp: string | null;
-  };
+  consent: CookieConsentState;
   isMounted: boolean;
   isModalOpen: boolean;
   acceptAll: () => void;
@@ -23,13 +23,13 @@ interface CookieConsentContextType {
 const CookieConsentContext = createContext<CookieConsentContextType | undefined>(undefined);
 
 export function CookieConsentProvider({ children }: { children: React.ReactNode }) {
-  const defaultState = {
+  const defaultState: CookieConsentState = {
     hasConsented: false,
     analyticsEnabled: false,
     timestamp: null,
   };
 
-  const [consent, setConsent] = useState(defaultState);
+  const [consent, setConsent] = useState<CookieConsentState>(defaultState);
   const [isMounted, setIsMounted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
