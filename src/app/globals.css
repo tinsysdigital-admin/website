@@ -1,26 +1,77 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-success: var(--success);
+  --color-error: var(--error);
+  
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  /* Enforce Dark Theme Always */
+  --background: #060608; /* Deep slate / near-black */
+  --foreground: #F8FAFC; /* Crisp white for text */
+  
+  /* Electric Cyan / Blue */
+  --primary: #00E5FF;
+  --primary-foreground: #000000;
+  
+  --muted: #13141A;
+  --muted-foreground: #94A3B8; /* Cool gray */
+  
+  --border: #1E222A;
+  
+  --accent: #00E5FF; /* Same as primary for highlights */
+  --accent-foreground: #000000;
+  
+  --card: #0A0B10;
+  --card-border: #1E222A;
+
+  --success: #10B981;
+  --error: #EF4444;
+
+  --radius: 0.5rem;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* Custom Selection */
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
 }
