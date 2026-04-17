@@ -7,12 +7,12 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { label: "Home", href: "#" },
-  { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
-  { label: "Capabilities", href: "#capabilities" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/#services" },
+  { label: "Process", href: "/#process" },
+  { label: "Capabilities", href: "/#capabilities" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function SiteHeader() {
@@ -57,7 +57,7 @@ export function SiteHeader() {
             ))}
           </div>
           <Button asChild>
-            <Link href="#contact">Start a Project</Link>
+            <Link href="/#contact">Start a Project</Link>
           </Button>
         </nav>
 
@@ -85,7 +85,7 @@ export function SiteHeader() {
             </Link>
           ))}
           <Button asChild className="w-full mt-2">
-            <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link href="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
               Start a Project
             </Link>
           </Button>

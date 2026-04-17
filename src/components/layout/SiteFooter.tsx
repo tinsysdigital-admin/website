@@ -23,13 +23,21 @@ export function SiteFooter() {
               {["Home", "Services", "Process", "Capabilities", "About", "Contact"].map((item) => (
                 <li key={item}>
                   <Link
-                    href={item === "Home" ? "#" : `#${item.toLowerCase()}`}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    href={item === "Home" ? "/" : `/#${item.toLowerCase()}`}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
                   >
                     {item}
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/privacy-policy"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -49,8 +57,8 @@ export function SiteFooter() {
               ].map((service) => (
                 <li key={service}>
                   <Link
-                    href="#services"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    href="/#services"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
                   >
                     {service}
                   </Link>
